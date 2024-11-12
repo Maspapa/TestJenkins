@@ -6,7 +6,7 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('Git Checkout') {
+        stage('Git Checkout') { 
             steps {
 
                 dir("$WORKSPACE"){
