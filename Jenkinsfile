@@ -26,7 +26,7 @@ pipeline {
         success { 
             archiveArtifacts artifacts: '**/*', fingerprint: true, onlyIfSuccessful: false, defaultExcludes: false
             
-            build job: '2_sample', wait: false
+            build job: "Mason/2_sample/$BRANCH_NAME", wait: false
         }
     }
 }
