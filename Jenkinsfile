@@ -5,7 +5,7 @@ pipeline {
         pollSCM('*/1 * * * *')
     }
     stages {
-        stage('Clean Workspace') {
+        stage('Clean Workspace') { 
             steps {
                 cleanWs()
             }
