@@ -10,20 +10,6 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('Check for Changes in build/sample') {
-            steps {
-                script {
-                    def changes = sh(script: "git diff --name-only HEAD~1..HEAD", returnStdout: true).trim()
-                    if (changes.contains("README")) {
-                        echo "Jenkinsfile in build/sample has changed, proceeding with the build."
-                    } else {
-                        echo "No changes in build/sample/Jenkinsfile, skipping build."
-                        currentBuild.result = 'SUCCESS'  // 直接跳过构建
-                        return  // 退出 pipeline
-                    }
-                }
-            }
-        }
         stage('Git Checkout') { 
             steps {
 
