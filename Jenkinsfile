@@ -23,7 +23,7 @@ pipeline {
 
     }
     post {
-        success {
+        success { 
             archiveArtifacts artifacts: '**/*', fingerprint: true, onlyIfSuccessful: false, defaultExcludes: false
         }
     }
