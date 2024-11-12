@@ -29,6 +29,7 @@ pipeline {
     post {
         success {
             archiveArtifacts artifacts: '**/*', fingerprint: true, onlyIfSuccessful: false, defaultExcludes: false
+            build job: "Mason/2_sample/$BRANCH_NAME", wait: false
         }
     }
 }
