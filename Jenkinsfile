@@ -11,7 +11,7 @@ pipeline {
 
                 dir("$WORKSPACE"){
                     checkout scm: scmGit(
-                        branches: [[name: "Prod"]],  
+                        branches: [[name: "$BRANCH_NAME"]],
                         extensions: [], 
                         userRemoteConfigs: [
                             [url: 'https://github.com/Maspapa/TestCode.git']
