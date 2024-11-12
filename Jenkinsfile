@@ -10,6 +10,18 @@ pipeline {
                 cleanWs()
             }
         }
+        stage('Check for changes in build folder') {
+            steps {
+                script {
+                    def changes = sh(script: "git diff --name-only HEAD~1 HEAD", returnStdout: true).trim()
+                    echo "Changed files: ${changes}"
+                    if (!changes.contains('README.md')) {
+                        currentBuild.result = 'ABORTED'
+                        error("No changes in README.md, aborting the build")
+                    }
+                }
+            }
+        }
         stage('Git Checkout') { 
             steps {
 
