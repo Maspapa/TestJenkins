@@ -26,7 +26,7 @@ pipeline {
         success { 
             archiveArtifacts artifacts: '**/*', fingerprint: true, onlyIfSuccessful: false, defaultExcludes: false
             
-            build job: '2_Sample', wait: false
+            build job: '2_sample', wait: false
         }
     }
 }
