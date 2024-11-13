@@ -1,4 +1,4 @@
-@Library('Tools@') _  // 引用全局配置的共享库
+@Library('setBranch@') _  // 引用全局配置的共享库
 
 pipeline {
     agent any
@@ -17,7 +17,7 @@ pipeline {
             steps {
                     script {
                         
-                        def branch = Tools.setBranch(env.BRANCH_NAME)
+                        def branch = setBranch.setBranch(env.BRANCH_NAME)
                         echo "The first BRANCH_NAME is: ${branch.CodeBranch}"
                         echo "The second BRANCH_NAME is: ${branch.AnotherBranch}"
                         env.GCDS_Branch = branch.CodeBranch
