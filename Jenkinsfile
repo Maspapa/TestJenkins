@@ -22,9 +22,7 @@ pipeline {
                                 env.GCDS_Branch = "$BRANCH_NAME"
                                 break
                             default:
-                                withFolderProperties {
-                                    env.GCDS_Branch = "test"
-                                }
+                                env.GCDS_Branch = "test"
                                 break
                         }
                     }
