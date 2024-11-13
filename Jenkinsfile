@@ -1,3 +1,5 @@
+@Library('setBranch') _  // 引用全局配置的共享库
+
 pipeline {
     agent any
     
@@ -14,17 +16,7 @@ pipeline {
         stage('Set Env') {
             steps {
                     script {
-                        switch (env.BRANCH_NAME) {
-                            case 'dev':
-                                env.GCDS_Branch = "$BRANCH_NAME"
-                                break
-                            case 'Prod':
-                                env.GCDS_Branch = "$BRANCH_NAME"
-                                break
-                            default:
-                                env.GCDS_Branch = "test"
-                                break
-                        }
+                        env.GCDS_Branch = setBranch(env.BRANCH_NAME)
                     }
             }
         }
