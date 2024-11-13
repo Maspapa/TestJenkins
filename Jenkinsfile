@@ -18,7 +18,9 @@ pipeline {
                     script {
                         
                         def branch = setBranch(env.BRANCH_NAME)
-                        env.GCDS_Branch = branch
+                        echo "The first BRANCH_NAME is: ${branch.CodeBranch}"
+                        echo "The second BRANCH_NAME is: ${branch.AnotherBranch}"
+                        env.GCDS_Branch = branch.CodeBranch
                     }
             }
         }
