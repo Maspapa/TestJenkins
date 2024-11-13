@@ -1,4 +1,4 @@
-def setBranch(String branchName) {
+def call(branchName) {
     
     echo "The value of BRANCH_NAME is: ${branchName}"
     def codeBranchName
