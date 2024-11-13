@@ -17,5 +17,5 @@ def call(branchName) {
             anotherName='3'
             break
     }
-    return [CodeBranch:codeBranchName,AnotherBranch:codeBranchName]
+    return [CodeBranch:codeBranchName,AnotherBranch:anotherName]
 }
