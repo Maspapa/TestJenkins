@@ -13,7 +13,6 @@ pipeline {
         
         stage('Set Env') {
             steps {
-                withFolderProperties {
                     script {
                         switch (env.BRANCH_NAME) {
                             case 'dev':
@@ -23,11 +22,12 @@ pipeline {
                                 env.GCDS_Branch = "$BRANCH_NAME"
                                 break
                             default:
-                                env.GCDS_Branch = "test"
+                                withFolderProperties {
+                                    env.GCDS_Branch = "test"
+                                }
                                 break
                         }
                     }
-                }
             }
         }
         stage('Git Checkout') { 
