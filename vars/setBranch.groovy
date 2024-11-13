@@ -1,13 +1,17 @@
 def call(branchName) {
+    
+    echo "The value of BRANCH_NAME is: ${branchName}"
+    def codeBranchName
     switch (branchName) {
         case 'dev':
-            env.GCDS_Branch = branchName
+            codeBranchName = branchName
             break
         case 'Prod':
-            env.GCDS_Branch = branchName
+            codeBranchName = branchName
             break
         default:
-            env.GCDS_Branch = "test"
+            codeBranchName = "test"
             break
     }
+    return codeBranchName
 }
