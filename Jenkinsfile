@@ -1,4 +1,4 @@
-@Library('setBranch') _  // 引用全局配置的共享库
+@Library('setBranch@') _  // 引用全局配置的共享库
 
 pipeline {
     agent any
