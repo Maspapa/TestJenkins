@@ -17,9 +17,7 @@ pipeline {
             steps {
                     script {
                         
-                        echo "The value of BRANCH_NAME is: ${env.BRANCH_NAME}"
                         def branch = setBranch(env.BRANCH_NAME)
-                        echo "The value of myVar is: ${branch}"
                         env.GCDS_Branch = branch
                     }
             }
