@@ -17,7 +17,7 @@ pipeline {
             steps {
                     script {
                         
-                        def branch = setBranch(env.BRANCH_NAME)
+                        def branch = setBranch.setBranch(env.BRANCH_NAME)
                         echo "The first BRANCH_NAME is: ${branch.CodeBranch}"
                         echo "The second BRANCH_NAME is: ${branch.AnotherBranch}"
                         env.GCDS_Branch = branch.CodeBranch
