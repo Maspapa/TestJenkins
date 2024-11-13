@@ -16,6 +16,8 @@ pipeline {
         stage('Set Env') {
             steps {
                     script {
+                        
+                        echo "The value of myVar is: ${env.BRANCH_NAME}"
                         env.GCDS_Branch = setBranch(env.BRANCH_NAME)
                     }
             }
