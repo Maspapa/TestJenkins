@@ -3,7 +3,7 @@
 pipeline {
     agent {
         node {
-            label any
+            label 'main'
             customWorkspace "D:/Jenkins/workspace/${env.JOB_NAME.replaceAll('/', '\\')}"
         }
     }
