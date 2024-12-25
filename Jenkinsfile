@@ -1,7 +1,12 @@
 @Library('MyTools@') _  // 引用全局配置的共享库
 
 pipeline {
-    agent any
+    agent {
+        node {
+            label any
+            customWorkspace "D:/Jenkins/workspace/${env.JOB_NAME.replaceAll('/', '\\')}"
+        }
+    }
     
     triggers {
         pollSCM('*/1 * * * *')
@@ -10,6 +15,9 @@ pipeline {
         stage('Clean Workspace') { 
             steps {
                 cleanWs()
+                script {
+                        echo "env.BRANCH_NAME : ${env.BRANCH_NAME} and env.JOB_NAME : ${env.JOB_NAME} and workspace is ${$WORKSPACE}"
+                    }
             }
         }
         
